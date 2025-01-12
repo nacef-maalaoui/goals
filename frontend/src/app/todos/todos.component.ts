@@ -29,26 +29,39 @@ export class TodosComponent {
   }
 
   supp(id : any){
-    this.dt.supp(id).subscribe({
-      next : (res)=>{
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your Jouer has been Deleted",
-          showConfirmButton: false,
-          timer: 1000
-        });
-        this.ngOnInit();
-      },
-      error : (err)=>{
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: "Your Jouer has not Deleted",
-          showConfirmButton: false,
-          timer: 1000
-        });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be delete this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.dt.supp(id).subscribe({
+          next : (res)=>{
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your Jouer has been Deleted",
+              showConfirmButton: false,
+              timer: 1000
+            });
+            this.ngOnInit();
+          },
+          error : (err)=>{
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Your Jouer has not Deleted",
+              showConfirmButton: false,
+              timer: 1000
+            });
+          }
+        })
       }
-    })
+    });
+
   }
 }
