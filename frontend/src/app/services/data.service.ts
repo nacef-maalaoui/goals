@@ -18,7 +18,7 @@ export class DataService {
     return this.http.get(this.url + 'todo');
   }
 
-  all(id : any){
+  byid(id : any){
     return this.http.get(this.url + 'byid/' + id);
   }
 

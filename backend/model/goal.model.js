@@ -4,7 +4,7 @@ const Goal = mongoose.model('Goal',{
     name : {
         type : String
     },
-    goals : {
+    goal: {
         type : Number
     },
     image : {
