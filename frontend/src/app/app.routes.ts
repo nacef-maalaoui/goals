@@ -8,6 +8,6 @@ export const routes: Routes = [
   {path : '' , redirectTo : 'todos' , pathMatch : 'full'},
   {path : 'todos' , component : TodosComponent},
   {path : 'add' , component : AddComponent},
-  {path : 'update' , component : UpdateComponent},
+  {path : 'update/:id' , component : UpdateComponent},
   {path : '**' , component : NotfoundComponent}
 ];
